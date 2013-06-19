@@ -44,10 +44,7 @@ Prior to installation, you will need to configure Ruby and Gems with `foreman`. 
 4. Run `foreman start` 
 5. See "MongoDB" on the left side of your New Relic screen with available metrics
 
-* It is best not to run this with `sudo` or `root` privileges.  If you
-find permissions errors, please consider creating a `~/.gems` directory
-for an unprivileged user, and setting the `GEM_HOME=~.gems`
-evironmental variable.*
+*It is best not to run this with `sudo` or `root` privileges.  If you find permissions errors, please consider creating a `~/.gems` directory for an unprivileged user, and setting the `GEM_HOME=~.gems` evironmental variable.*
 
 ## Production Deployment Methods
 
