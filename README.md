@@ -3,6 +3,15 @@
 A plugin to gather metrics from your MongoDB deployment and send the
 metrics to the New Relic Platform.
 
+## Requirements
+
+While this project is gaining steam, you will need a base knowledge of
+Ruby and Ruby Gems.  If you have this knowledge, and feel that you
+breezed through the installation, please consider writing a tutorial for
+others.  If you are lacking knowledge on the Ruby and Ruby gems
+configuration, please post questions to the Issues second of the
+project, and we will help as quickly as possible. 
+
 ## Metrics
 
 Everyone loves metrics.  Everyone loves metrics beside their application
@@ -26,12 +35,14 @@ inspection and automated monitoring for complete environments.
 
 ## Base Installation and Configuration
 
+Prior to installation, you will need to configure Ruby and Gems with `foreman`.  There are 
+
 1. Download the latest release from (https://github.com/MongoHQ/newrelic_mongodb_extension/tags)
 2. Copy `config/template_newrelic_plugin.yml` to `config/newrelic_plugin.yml` 
 3. Modify `config/newrelic_plugin.yml` as required
+3. Install required Ruby gems for the agent by running `bundle install` from the plugins parent directory.
 4. Run `foreman start` 
-5. See "MongoDB" on the left side of your New Relic screen with
-   available metrics
+5. See "MongoDB" on the left side of your New Relic screen with available metrics
 
 ## Production Deployment Methods
 
