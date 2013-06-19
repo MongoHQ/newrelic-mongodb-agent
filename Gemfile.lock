@@ -1,9 +1,9 @@
 GIT
-  remote: git@github.com:newrelic-platform/newrelic_plugin.git
-  revision: 1bc791178252f337be64de6c4b6af753881c8484
+  remote: https://github.com/newrelic-platform/newrelic_plugin.git
+  revision: 913177005ae53883c73395833f3be0e9c6644eae
   branch: release
   specs:
-    newrelic_plugin (1.0.0)
+    newrelic_plugin (1.0.1)
       faraday (>= 0.8.1)
       json
 
