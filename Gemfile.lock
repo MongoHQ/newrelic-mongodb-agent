@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/newrelic-platform/newrelic_plugin.git
-  revision: 913177005ae53883c73395833f3be0e9c6644eae
-  branch: release
-  specs:
-    newrelic_plugin (1.0.1)
-      faraday (>= 0.8.1)
-      json
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -23,6 +14,9 @@ GEM
     mongo (1.8.2)
       bson (~> 1.8.2)
     multipart-post (1.2.0)
+    newrelic_plugin (1.0.2)
+      faraday (>= 0.8.1)
+      json
     thor (0.18.1)
 
 PLATFORMS
@@ -32,4 +26,4 @@ DEPENDENCIES
   bson_ext
   foreman
   mongo
-  newrelic_plugin!
+  newrelic_plugin
