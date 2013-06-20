@@ -84,7 +84,7 @@ module NewRelic::MongodbAgent
 
     def client
       @client ||= begin
-                    client = MongoClient.new(endpoint, port.to_i, slave_ok: true)
+                    client = MongoClient.new(endpoint, port.to_i, :slave_ok => true)
 
                     unless username.nil?
                       client.db("admin").authenticate(username, password)
