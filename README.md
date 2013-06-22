@@ -9,7 +9,7 @@ While this project is gaining steam, you will need a base knowledge of
 Ruby and Ruby Gems.  If you have this knowledge, and feel that you
 breezed through the installation, please consider writing a tutorial for
 others.  If you are lacking knowledge on the Ruby and Ruby gems
-configuration, please post questions to the Issues second of the
+configuration, please post questions to the Issues section of the
 project, and we will help as quickly as possible. 
 
 ## Metrics
