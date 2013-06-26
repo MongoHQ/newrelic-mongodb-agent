@@ -12,7 +12,7 @@ module NewRelic::MongodbAgent
     agent_guid "com.mongohq.mongo-agent"
     agent_config_options :endpoint, :username, :password, :database, :port, :agent_name
     agent_human_labels("MongoDB") { "#{agent_name}" }
-    agent_version '2.4.4-2'
+    agent_version '2.4.4-3'
 
     def setup_metrics
       self.port ||= 27017 
@@ -61,10 +61,10 @@ module NewRelic::MongodbAgent
       report_metric("DBStats/Average Object Size", "Size",          db_stats['avgObjSize'])
 
       # Memory metrics
-      report_metric("Memory/Resident",             "bytes",            stats['mem']['resident'])
-      report_metric("Memory/Virtual",              "bytes",            stats['mem']['virtual'])
-      report_metric("Memory/Mapped",               "bytes",            stats['mem']['mapped'])
-      report_metric("Memory/Mapped with Journal",  "bytes",            stats['mem']['mappedWithJournal'])
+      report_metric("Memory/Resident",             "bytes",            stats['mem']['resident'] * 1024 * 1024)
+      report_metric("Memory/Virtual",              "bytes",            stats['mem']['virtual'] * 1024 * 1024)
+      report_metric("Memory/Mapped",               "bytes",            stats['mem']['mapped'] * 1024 * 1024)
+      report_metric("Memory/Mapped with Journal",  "bytes",            stats['mem']['mappedWithJournal'] * 1024 * 1024)
 
       # Locks
       report_lock_counter_metric("Locks/Global/Lock",              "%",         stats, "globalLock|lockTime")
