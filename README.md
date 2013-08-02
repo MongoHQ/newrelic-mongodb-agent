@@ -37,7 +37,7 @@ inspection and automated monitoring for complete environments.
 
 Prior to installation, you will need to configure Ruby and Gems with `foreman`.  There are 
 
-1. Download the latest release from (https://github.com/MongoHQ/newrelic_mongodb_extension/tags)
+1. Download the latest release from (https://github.com/MongoHQ/newrelic-mongodb-agent/releases)
 2. Copy `config/template_newrelic_plugin.yml` to `config/newrelic_plugin.yml` 
 3. Modify `config/newrelic_plugin.yml` as required
 3. Install required Ruby gems for the agent by running `bundle install` from the plugins parent directory.
