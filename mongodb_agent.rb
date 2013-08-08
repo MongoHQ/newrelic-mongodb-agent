@@ -10,7 +10,7 @@ module NewRelic::MongodbAgent
 
   class Agent < NewRelic::Plugin::Agent::Base
     agent_guid "com.mongohq.mongo-agent"
-    agent_config_options :endpoint, :username, :password, :database, :port, :agent_name
+    agent_config_options :endpoint, :username, :password, :database, :port, :agent_name, :ssl
     agent_human_labels("MongoDB") { "#{agent_name}" }
     agent_version '2.4.4-3'
 
@@ -84,7 +84,7 @@ module NewRelic::MongodbAgent
 
     def client
       @client ||= begin
-                    client = MongoClient.new(endpoint, port.to_i, :slave_ok => true)
+                    client = MongoClient.new(endpoint, port.to_i, :slave_ok => true, :ssl => ssl || false)
 
                     unless username.nil?
                       client.db("admin").authenticate(username, password)
