@@ -31,7 +31,7 @@ agents:
     agent_name: "localhost:27017/mongodb"
     endpoint: "localhost"
     database: "sample-db"
-
+    ssl: false
     #
     #  If you are running MongoDB without authentication, please delete from now to the end
     #  of the file.
