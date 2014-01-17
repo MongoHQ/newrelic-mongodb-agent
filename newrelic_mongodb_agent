@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 require "rubygems"
 require "bundler/setup"
 require "newrelic_plugin"
@@ -140,6 +141,11 @@ module NewRelic::MongodbAgent
   end
 
   #
+  # Load up the config file
+  #
+  NewRelic::Plugin::Config.config_file = File.dirname(__FILE__) + '/config/newrelic_plugin.yml'
+
+  #
   # Register this agent.
   #
   NewRelic::Plugin::Setup.install_agent :mongodb, self
@@ -150,3 +156,5 @@ module NewRelic::MongodbAgent
   NewRelic::Plugin::Run.setup_and_run
 
 end
+
+
