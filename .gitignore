@@ -1,3 +1,4 @@
 mongo_data_test.rb
 mongo_metrics.rb
 config/newrelic_plugin.yml
+newrelic_mongodb_agent.pid
