@@ -4,6 +4,7 @@ GEM
     bson (1.8.2)
     bson_ext (1.8.2)
       bson (~> 1.8.2)
+    daemons (1.1.9)
     dotenv (0.7.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
@@ -24,6 +25,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext
+  daemons
   foreman
   mongo
   newrelic_plugin

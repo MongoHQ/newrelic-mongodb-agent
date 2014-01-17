@@ -38,10 +38,10 @@ inspection and automated monitoring for complete environments.
 Prior to installation, you will need to configure Ruby and Gems with `foreman`.  There are 
 
 1. Download the latest release from (https://github.com/MongoHQ/newrelic-mongodb-agent/releases)
-2. Copy `config/template_newrelic_plugin.yml` to `config/newrelic_plugin.yml` 
+2. Copy `config/newrelic_plugin.yml.example` to `config/newrelic_plugin.yml` 
 3. Modify `config/newrelic_plugin.yml` as required
 3. Install required Ruby gems for the agent by running `bundle install` from the plugins parent directory.
-4. Run `foreman start` 
+4. Run `foreman start` OR `./new_relic_mongodb_agent` to run in the foreground for testing/debuggin and `./new_relic_mongodb_agent.daemon start` to run in the background.
 5. See "MongoDB" on the left side of your New Relic screen with available metrics
 
 *It is best not to run this with `sudo` or `root` privileges.  If you find permissions errors, please consider creating a `~/.gems` directory for an unprivileged user, and setting the `GEM_HOME=~.gems` evironmental variable.*
@@ -51,7 +51,8 @@ Prior to installation, you will need to configure Ruby and Gems with `foreman`. 
 Two (of many) methods for deploying this New Relic Platform plugin:
 
 1. On Linux (with upstart)
-2. Heroku 
+2. On Linux (with using Daemons and/or Monit)
+3. Heroku 
 
 If you have documentation for other deployment methods, please submit a
 pull request.
@@ -64,6 +65,24 @@ Run the above steps on base installation and configuration.  Then, run:
 
 This will create an upstart manageable process that will run on server
 start.
+
+### On Host Deployment using Monit
+
+Using monit over upstart seems easier as the process can be monitored for status and resource usage rather that just system and manual starts.
+
+`sudo apt-get install monit`
+
+Example monit config:
+
+```
+# /etc/monit/conf.d/new_relic_mongodb_agent.conf
+check process newrelic_mongodb_agent
+  with pidfile /home/ubuntu/newrelic_mongodb_agent/newrelic_mongodb_agent.pid
+  start program = "/bin/su - ubuntu -c '/home/ubuntu/newrelic_mongodb_agent/newrelic_mongodb_agent.daemon start'" with timeout 90 seconds
+  stop program = "/bin/su - ubuntu -c '/home/ubuntu/newrelic_mongodb_agent/newrelic_mongodb_agent.daemon stop'" with timeout 90 seconds
+  if totalmem is greater than 250 MB for 2 cycles then restart
+  group newrelic_agent
+```
 
 ### Heroku
 
