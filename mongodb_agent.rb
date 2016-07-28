@@ -46,7 +46,7 @@ module NewRelic::MongodbAgent
       # Connection metrics
       report_metric("Connections/Current",                "current",         stats['connections']['current'])
       report_metric("Connections/Available",              "available",       stats['connections']['available'])
-      report_counter_metric("Connections/Total Created",  "connections/sec", stats['connections']['available'])
+      report_counter_metric("Connections/Total Created",  "connections/sec", stats['connections']['totalCreated'])
 
       # Cursor metrics
       report_metric("Cursors/Total Open",        "open",            stats['cursors']['totalOpen'])
